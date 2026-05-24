@@ -1,0 +1,13 @@
+{
+  "itemGroup.remixed_casings": "Example Mod Tab",
+  "block.remixed_casings.example_block": "Example Block",
+  "item.remixed_casings.example_item": "Example Item",
+
+  "remixed_casings.configuration.title": "Create: Remixed Casings Configs",
+  "remixed_casings.configuration.section.remixed_casings.common.toml": "Create: Remixed Casings Configs",
+  "remixed_casings.configuration.section.remixed_casings.common.toml.title": "Create: Remixed Casings Configs",
+  "remixed_casings.configuration.items": "Item List",
+  "remixed_casings.configuration.logDirtBlock": "Log Dirt Block",
+  "remixed_casings.configuration.magicNumberIntroduction": "Magic Number Text",
+  "remixed_casings.configuration.magicNumber": "Magic Number"
+}
