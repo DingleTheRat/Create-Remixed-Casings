@@ -8,16 +8,13 @@ import org.slf4j.Logger;
 import com.mojang.logging.LogUtils;
 import com.simibubi.create.AllBlocks;
 import com.simibubi.create.AllItems;
-import com.simibubi.create.content.decoration.encasing.CasingBlock;
 import com.simibubi.create.foundation.data.CreateRegistrate;
 
-import fr.iglee42.createcasing.casings.CasingSets;
-import fr.iglee42.createcasing.registries.EncasedBlocks;
-import fr.iglee42.createcasing.registries.EncasedItems;
 import net.minecraft.data.PackOutput;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.Blocks;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.fml.common.Mod;
 import net.neoforged.fml.event.lifecycle.FMLCommonSetupEvent;
@@ -30,7 +27,7 @@ public class CreateRemixedCasings {
     public static final String MOD_ID = "remixed_casings";
     public static final Logger LOGGER = LogUtils.getLogger();
 
-    public static final Map<Item, Block> CASING_CONVERSION_MAP = new HashMap<>();
+    public static final Map<Block, Map<Item, Block>> CASING_CONVERSION_MAP = new HashMap<>();
 
     public static final CreateRegistrate REGISTRATE = CreateRegistrate.create(MOD_ID);
 
@@ -43,21 +40,59 @@ public class CreateRemixedCasings {
     }
 
     public void setupConversionMap(FMLCommonSetupEvent event) {
-       // Materials
-       CASING_CONVERSION_MAP.put(Items.COPPER_INGOT, AllBlocks.COPPER_CASING.get());
-       CASING_CONVERSION_MAP.put(AllItems.ANDESITE_ALLOY.get(), AllBlocks.ANDESITE_CASING.get());
-       CASING_CONVERSION_MAP.put(AllItems.BRASS_INGOT.get(), AllBlocks.BRASS_CASING.get());
-       CASING_CONVERSION_MAP.put(AllItems.STURDY_SHEET.get(), AllBlocks.RAILWAY_CASING.get());
+        // Andesite
+        Map<Item, Block> andesite = Map.of(
+            // Planks
+            Items.DARK_OAK_PLANKS, RemixedCasings.ANDESITE_DARK_OAK.getCasing(),
+            AllItems.STURDY_SHEET.get(), RemixedCasings.ANDESITE_TRAIN.getCasing(),
 
-       // Planks
-       CASING_CONVERSION_MAP.put(Items.ACACIA_PLANKS, AllBlocks.COPPER_CASING.get());
-       CASING_CONVERSION_MAP.put(Items.SPRUCE_PLANKS, AllBlocks.ANDESITE_CASING.get());
-       CASING_CONVERSION_MAP.put(Items.DARK_OAK_PLANKS, AllBlocks.BRASS_CASING.get());
+            // Materials
+            AllItems.BRASS_INGOT.get(), RemixedCasings.BRASS_SPRUCE.getCasing()
+        );
+        CASING_CONVERSION_MAP.put(AllBlocks.ANDESITE_CASING.get(), andesite);
 
-       // Non-survival
-       CASING_CONVERSION_MAP.put(AllItems.SHADOW_STEEL.get(), CasingSets.SHADOW_STEEL.getCasing());
-       CASING_CONVERSION_MAP.put(AllItems.REFINED_RADIANCE.get(), CasingSets.REFINED_RADIANCE.getCasing());
-       CASING_CONVERSION_MAP.put(EncasedItems.CHORIUM_INGOT.get(), CasingSets.CREATIVE.getCasing());
+        // Dark Oak Andesite
+        Map<Item, Block> andesiteDarkOak = Map.of(
+            // Planks
+            Items.SPRUCE_PLANKS, AllBlocks.ANDESITE_CASING.get(),
+            AllItems.STURDY_SHEET.get(), RemixedCasings.ANDESITE_TRAIN.getCasing(),
+
+            // Materials
+            AllItems.BRASS_INGOT.get(), AllBlocks.BRASS_CASING.get()
+        );
+        CASING_CONVERSION_MAP.put(RemixedCasings.ANDESITE_DARK_OAK.getCasing(), andesiteDarkOak);
+
+        // Andesite Train
+        Map<Item, Block> andesiteTrain = Map.of(
+            // Planks
+            Items.SPRUCE_PLANKS, AllBlocks.ANDESITE_CASING.get(),
+            Items.DARK_OAK_PLANKS, RemixedCasings.ANDESITE_DARK_OAK.getCasing(),
+
+            // Materials
+            AllItems.BRASS_INGOT.get(), AllBlocks.RAILWAY_CASING.get() 
+        );
+        CASING_CONVERSION_MAP.put(RemixedCasings.ANDESITE_TRAIN.getCasing(), andesiteTrain);
+
+        // Brass
+        Map<Item, Block> brass = Map.of(
+            // Planks
+            Items.SPRUCE_PLANKS, RemixedCasings.BRASS_SPRUCE.getCasing(),
+
+            // Materials
+            AllItems.ANDESITE_ALLOY.get(), RemixedCasings.ANDESITE_DARK_OAK.getCasing()
+        );
+        CASING_CONVERSION_MAP.put(AllBlocks.BRASS_CASING.get(), brass);
+
+        // Brass Spruce
+        Map<Item, Block> brassSpruce = Map.of(
+            // Planks
+            Items.DARK_OAK_PLANKS, AllBlocks.BRASS_CASING.get(),
+            AllItems.STURDY_SHEET.get(), AllBlocks.RAILWAY_CASING.get(),
+
+            // Materials
+            AllItems.ANDESITE_ALLOY.get(), AllBlocks.ANDESITE_CASING.get() 
+        );
+        CASING_CONVERSION_MAP.put(RemixedCasings.BRASS_SPRUCE.getCasing(), brassSpruce);
     }
 
     public void onGatherData(GatherDataEvent event) {

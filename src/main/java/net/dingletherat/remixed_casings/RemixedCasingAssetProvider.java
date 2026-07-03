@@ -58,6 +58,20 @@ public class RemixedCasingAssetProvider extends BlockStateProvider {
             createEncasedCogwheel("encased_cogwheel", RemixedCasings.STEEL.getCogwheel(), steelTexture, steelEncasedCogwheelSide, steelGearboxTexture);
             createEncasedCogwheel("encased_large_cogwheel", RemixedCasings.STEEL.getLargeCogwheel(), steelTexture, steelEncasedCogwheelSide, steelGearboxTexture);
         }
+
+        // Andesite
+        ModelFile andesiteDarkOak = models().cubeAll(name(RemixedCasings.ANDESITE_DARK_OAK.getCasing()), ResourceLocation.fromNamespaceAndPath("remixed_casings", "block/andesite/dark_oak"));
+        simpleBlockWithItem(RemixedCasings.ANDESITE_DARK_OAK.getCasing(), andesiteDarkOak);
+        ModelFile andesiteTrain = models().cubeAll(name(RemixedCasings.ANDESITE_TRAIN.getCasing()), ResourceLocation.fromNamespaceAndPath("remixed_casings", "block/andesite/train"));
+        simpleBlockWithItem(RemixedCasings.ANDESITE_TRAIN.getCasing(), andesiteTrain);
+
+        // Brass
+        ModelFile brassSpruce = models().cubeAll(name(RemixedCasings.BRASS_SPRUCE.getCasing()), ResourceLocation.fromNamespaceAndPath("remixed_casings", "block/brass/spruce"));
+        simpleBlockWithItem(RemixedCasings.BRASS_SPRUCE.getCasing(), brassSpruce);
+    }
+
+    public String name(Block block) {
+        return BuiltInRegistries.BLOCK.getKey(block).getPath();
     }
 
     public void createEncasedShaft(Block block, ResourceLocation casing, ResourceLocation opening) {
