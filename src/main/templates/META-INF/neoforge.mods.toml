@@ -46,7 +46,7 @@ authors="DingleTheRat"
 
 # The description text for the mod (multi line!) (#mandatory)
 description='''
-A remixed version of Create: Mixed Casings that uses Create: Encased to allow you to encase anything with your custom casing.
+A remixed take on Create: Mixed Casings that uses Create: Encased to allow you to encase anything with your custom casing.
 '''
 
 # The [[mixins]] block allows you to declare your mixin config to FML so that it gets loaded.

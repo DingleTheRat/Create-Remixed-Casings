@@ -2,6 +2,7 @@ package net.dingletherat.remixed_casings;
 
 import com.drmangotea.tfmg.TFMG;
 import com.drmangotea.tfmg.registry.TFMGBlocks;
+import com.simibubi.create.content.decoration.encasing.CasingBlock;
 import com.simibubi.create.foundation.block.connected.AllCTTypes;
 import com.simibubi.create.foundation.block.connected.CTSpriteShiftEntry;
 import com.simibubi.create.foundation.block.connected.CTSpriteShifter;

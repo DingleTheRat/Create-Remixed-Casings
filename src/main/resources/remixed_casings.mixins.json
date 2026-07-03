@@ -3,6 +3,7 @@
   "package": "net.dingletherat.remixed_casings.mixin",
   "compatibilityLevel": "JAVA_21",
   "mixins": [
+    "CasingBlockMixin"
   ],
   "injectors": {
     "defaultRequire": 1
