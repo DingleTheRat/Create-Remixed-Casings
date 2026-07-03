@@ -23,10 +23,11 @@ public class CasingBlockMixin extends Block {
 
     @Override
     protected ItemInteractionResult useItemOn(ItemStack itemStack, BlockState state, Level level, BlockPos position, Player player, InteractionHand hand, BlockHitResult hitResult) {
-        if (level.isClientSide()) return ItemInteractionResult.PASS_TO_DEFAULT_BLOCK_INTERACTION;
-
         if (!CreateRemixedCasings.CASING_CONVERSION_MAP.containsKey(itemStack.getItem())) return ItemInteractionResult.PASS_TO_DEFAULT_BLOCK_INTERACTION;
         if (!CreateRemixedCasings.CASING_CONVERSION_MAP.containsValue(state.getBlock())) return ItemInteractionResult.PASS_TO_DEFAULT_BLOCK_INTERACTION;
+        if (CreateRemixedCasings.CASING_CONVERSION_MAP.get(itemStack.getItem()) == state.getBlock()) return ItemInteractionResult.PASS_TO_DEFAULT_BLOCK_INTERACTION;
+
+        if (level.isClientSide()) return ItemInteractionResult.CONSUME;
 
         level.setBlockAndUpdate(position, CreateRemixedCasings.CASING_CONVERSION_MAP.get(itemStack.getItem()).defaultBlockState());
         if (!player.isCreative()) itemStack.shrink(1);

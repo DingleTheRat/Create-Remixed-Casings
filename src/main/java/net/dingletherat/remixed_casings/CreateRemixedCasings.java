@@ -30,7 +30,7 @@ public class CreateRemixedCasings {
     public static final String MOD_ID = "remixed_casings";
     public static final Logger LOGGER = LogUtils.getLogger();
 
-    public static Map<Item, Block> CASING_CONVERSION_MAP;
+    public static final Map<Item, Block> CASING_CONVERSION_MAP = new HashMap<>();
 
     public static final CreateRegistrate REGISTRATE = CreateRegistrate.create(MOD_ID);
 
@@ -39,19 +39,25 @@ public class CreateRemixedCasings {
         RemixedCasings.register();
 
         modEventBus.addListener(this::onGatherData);
-        modEventBus.addListener(this::commonSetup);
+        modEventBus.addListener(this::setupConversionMap);
     }
 
-    public void commonSetup(FMLCommonSetupEvent event) {
-        CASING_CONVERSION_MAP = Map.of(
-           Items.COPPER_INGOT, AllBlocks.COPPER_CASING.get(),
-           AllItems.ANDESITE_ALLOY.get(), AllBlocks.ANDESITE_CASING.get(),
-           AllItems.BRASS_INGOT.get(), AllBlocks.BRASS_CASING.get(),
-           AllItems.STURDY_SHEET.get(), AllBlocks.RAILWAY_CASING.get(),
-           AllItems.SHADOW_STEEL.get(), CasingSets.SHADOW_STEEL.getCasing(),
-           AllItems.REFINED_RADIANCE.get(), CasingSets.REFINED_RADIANCE.getCasing(),
-           EncasedItems.CHORIUM_INGOT.get(), CasingSets.CREATIVE.getCasing()
-        ); 
+    public void setupConversionMap(FMLCommonSetupEvent event) {
+       // Materials
+       CASING_CONVERSION_MAP.put(Items.COPPER_INGOT, AllBlocks.COPPER_CASING.get());
+       CASING_CONVERSION_MAP.put(AllItems.ANDESITE_ALLOY.get(), AllBlocks.ANDESITE_CASING.get());
+       CASING_CONVERSION_MAP.put(AllItems.BRASS_INGOT.get(), AllBlocks.BRASS_CASING.get());
+       CASING_CONVERSION_MAP.put(AllItems.STURDY_SHEET.get(), AllBlocks.RAILWAY_CASING.get());
+
+       // Planks
+       CASING_CONVERSION_MAP.put(Items.ACACIA_PLANKS, AllBlocks.COPPER_CASING.get());
+       CASING_CONVERSION_MAP.put(Items.SPRUCE_PLANKS, AllBlocks.ANDESITE_CASING.get());
+       CASING_CONVERSION_MAP.put(Items.DARK_OAK_PLANKS, AllBlocks.BRASS_CASING.get());
+
+       // Non-survival
+       CASING_CONVERSION_MAP.put(AllItems.SHADOW_STEEL.get(), CasingSets.SHADOW_STEEL.getCasing());
+       CASING_CONVERSION_MAP.put(AllItems.REFINED_RADIANCE.get(), CasingSets.REFINED_RADIANCE.getCasing());
+       CASING_CONVERSION_MAP.put(EncasedItems.CHORIUM_INGOT.get(), CasingSets.CREATIVE.getCasing());
     }
 
     public void onGatherData(GatherDataEvent event) {
