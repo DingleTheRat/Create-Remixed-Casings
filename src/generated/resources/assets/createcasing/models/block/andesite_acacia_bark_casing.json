@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/cube_all",
+  "textures": {
+    "all": "remixed_casings:block/andesite/acacia_bark"
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/cube_all",
+  "textures": {
+    "all": "remixed_casings:block/acacia_bark_planks"
+  }
+}

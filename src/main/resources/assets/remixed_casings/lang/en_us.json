@@ -1,6 +1,11 @@
 {
   "block.createcasing.andesite_dark_oak_casing": "Andesite Dark Oak Casing",
   "block.createcasing.andesite_train_casing": "Andesite Train Casing",
+  "block.createcasing.andesite_acacia_bark_casing": "Andesite Acacia Bark Casing",
 
-  "block.createcasing.brass_spruce_casing": "Brass Spruce Casing"
+  "block.createcasing.brass_spruce_casing": "Brass Spruce Casing",
+  "block.createcasing.brass_acacia_bark_casing": "Brass Acacia Bark Casing",
+
+  "block.remixed_casings.acacia_bark_planks": "Acacia Bark Planks",
+  "item.remixed_casings.acacia_bark": "Acacia Bark"
 }

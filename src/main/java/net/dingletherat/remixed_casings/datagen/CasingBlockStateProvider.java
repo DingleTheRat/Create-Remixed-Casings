@@ -1,4 +1,4 @@
-package net.dingletherat.remixed_casings;
+package net.dingletherat.remixed_casings.datagen;
 
 import net.minecraft.data.PackOutput;
 import net.minecraft.resources.ResourceLocation;
@@ -9,6 +9,7 @@ import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import com.drmangotea.tfmg.TFMG;
 import com.simibubi.create.content.kinetics.simpleRelays.encased.EncasedCogwheelBlock;
 
+import net.dingletherat.remixed_casings.RemixedCasings;
 import net.minecraft.core.Direction;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.neoforged.neoforge.client.model.generators.BlockStateProvider;
@@ -17,7 +18,7 @@ import net.neoforged.fml.ModList;
 import net.neoforged.neoforge.client.model.generators.BlockModelBuilder;
 import net.neoforged.neoforge.common.data.ExistingFileHelper;
 
-public class RemixedCasingAssetProvider extends BlockStateProvider {
+public class CasingBlockStateProvider extends BlockStateProvider {
     private final ResourceLocation gearboxTexture = ResourceLocation.fromNamespaceAndPath("create", "block/gearbox");
     private final ResourceLocation depotTopTexture = ResourceLocation.fromNamespaceAndPath("create", "block/depot_top");
     private final ResourceLocation cogwheelSideTexture = ResourceLocation.fromNamespaceAndPath("create", "block/andesite_encased_cogwheel_side");
@@ -28,7 +29,7 @@ public class RemixedCasingAssetProvider extends BlockStateProvider {
     private final ResourceLocation steelGearboxTexture = ResourceLocation.fromNamespaceAndPath("tfmg", "block/steel_gearbox");
     private final ResourceLocation steelEncasedCogwheelSide = ResourceLocation.fromNamespaceAndPath("tfmg", "block/steel_encased_cogwheel_side");
 
-    public RemixedCasingAssetProvider(PackOutput output, ExistingFileHelper fileHelper) {
+    public CasingBlockStateProvider(PackOutput output, ExistingFileHelper fileHelper) {
         super(output, "createcasing", fileHelper);
 
         // Tell the fileHelper that these external textures are mine
@@ -64,10 +65,14 @@ public class RemixedCasingAssetProvider extends BlockStateProvider {
         simpleBlockWithItem(RemixedCasings.ANDESITE_DARK_OAK.getCasing(), andesiteDarkOak);
         ModelFile andesiteTrain = models().cubeAll(name(RemixedCasings.ANDESITE_TRAIN.getCasing()), ResourceLocation.fromNamespaceAndPath("remixed_casings", "block/andesite/train"));
         simpleBlockWithItem(RemixedCasings.ANDESITE_TRAIN.getCasing(), andesiteTrain);
+        ModelFile andesiteAcaciaBark = models().cubeAll(name(RemixedCasings.ANDESITE_ACACIA_BARK.getCasing()), ResourceLocation.fromNamespaceAndPath("remixed_casings", "block/andesite/acacia_bark"));
+        simpleBlockWithItem(RemixedCasings.ANDESITE_ACACIA_BARK.getCasing(), andesiteAcaciaBark);
 
         // Brass
         ModelFile brassSpruce = models().cubeAll(name(RemixedCasings.BRASS_SPRUCE.getCasing()), ResourceLocation.fromNamespaceAndPath("remixed_casings", "block/brass/spruce"));
         simpleBlockWithItem(RemixedCasings.BRASS_SPRUCE.getCasing(), brassSpruce);
+        ModelFile brassAcaciaBark = models().cubeAll(name(RemixedCasings.BRASS_ACACIA_BARK.getCasing()), ResourceLocation.fromNamespaceAndPath("remixed_casings", "block/brass/acacia_bark"));
+        simpleBlockWithItem(RemixedCasings.BRASS_ACACIA_BARK.getCasing(), brassAcaciaBark);
     }
 
     public String name(Block block) {
