@@ -1,14 +1,24 @@
 package net.dingletherat.remixed_casings.mixin;
 
+import java.util.Map;
+
 import org.spongepowered.asm.mixin.Mixin;
 
+import com.simibubi.create.AllBlocks;
+import com.simibubi.create.AllItems;
 import com.simibubi.create.content.decoration.encasing.CasingBlock;
+import com.simibubi.create.foundation.advancement.AllAdvancements;
 
 import net.dingletherat.remixed_casings.CreateRemixedCasings;
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.particles.BlockParticleOption;
+import net.minecraft.core.particles.ParticleTypes;
+import net.minecraft.server.level.ServerLevel;
+import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.ItemInteractionResult;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
@@ -24,15 +34,21 @@ public class CasingBlockMixin extends Block {
     @Override
     protected ItemInteractionResult useItemOn(ItemStack itemStack, BlockState state, Level level, BlockPos position, Player player, InteractionHand hand, BlockHitResult hitResult) {
         Block block = state.getBlock();
-        if (!CreateRemixedCasings.CASING_CONVERSION_MAP.containsKey(block)) return ItemInteractionResult.PASS_TO_DEFAULT_BLOCK_INTERACTION;
-        if (!CreateRemixedCasings.CASING_CONVERSION_MAP.get(block).containsKey(itemStack.getItem())) return ItemInteractionResult.PASS_TO_DEFAULT_BLOCK_INTERACTION;
-        if (CreateRemixedCasings.CASING_CONVERSION_MAP.get(block).get(itemStack.getItem()) == block) return ItemInteractionResult.PASS_TO_DEFAULT_BLOCK_INTERACTION;
+        Map<Item, Block> mapEntry = CreateRemixedCasings.CASING_CONVERSION_MAP.getOrDefault(block, null);
 
         if (level.isClientSide()) return ItemInteractionResult.CONSUME;
+        if (mapEntry == null) return ItemInteractionResult.PASS_TO_DEFAULT_BLOCK_INTERACTION;
+        if (!mapEntry.containsKey(itemStack.getItem())) return ItemInteractionResult.PASS_TO_DEFAULT_BLOCK_INTERACTION;
+        if (mapEntry.get(itemStack.getItem()) == block) return ItemInteractionResult.PASS_TO_DEFAULT_BLOCK_INTERACTION;
 
-        level.setBlockAndUpdate(position, CreateRemixedCasings.CASING_CONVERSION_MAP.get(block).get(itemStack.getItem()).defaultBlockState());
+        BlockState newState = mapEntry.get(itemStack.getItem()).defaultBlockState();
+        level.setBlockAndUpdate(position, newState);
+        if (level instanceof ServerLevel serverLevel)
+            serverLevel.sendParticles(new BlockParticleOption(ParticleTypes.BLOCK, newState), position.getX() + 0.5, position.getY() + 0.5, position.getZ() + 0.5, 30, 0.3, 0.3, 0.3, 0.0);
+
+        if (itemStack.getItem() == AllItems.STURDY_SHEET.get()) AllAdvancements.TRAIN_CASING.awardTo(player);
+
         if (!player.isCreative()) itemStack.shrink(1);
-
         return ItemInteractionResult.SUCCESS;
     }
 }
