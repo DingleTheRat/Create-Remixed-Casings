@@ -73,6 +73,14 @@ public class CasingBlockStateProvider extends BlockStateProvider {
         simpleBlockWithItem(RemixedCasings.BRASS_SPRUCE.getCasing(), brassSpruce);
         ModelFile brassAcaciaBark = models().cubeAll(name(RemixedCasings.BRASS_ACACIA_BARK.getCasing()), ResourceLocation.fromNamespaceAndPath("remixed_casings", "block/brass/acacia_bark"));
         simpleBlockWithItem(RemixedCasings.BRASS_ACACIA_BARK.getCasing(), brassAcaciaBark);
+
+        // Copper
+        ModelFile copperDarkOak = models().cubeAll(name(RemixedCasings.COPPER_DARK_OAK.getCasing()), ResourceLocation.fromNamespaceAndPath("remixed_casings", "block/copper/dark_oak"));
+        simpleBlockWithItem(RemixedCasings.COPPER_DARK_OAK.getCasing(), copperDarkOak);
+        ModelFile copperSpruce = models().cubeAll(name(RemixedCasings.COPPER_SPRUCE.getCasing()), ResourceLocation.fromNamespaceAndPath("remixed_casings", "block/copper/spruce"));
+        simpleBlockWithItem(RemixedCasings.COPPER_SPRUCE.getCasing(), copperSpruce);
+        ModelFile copperTrain = models().cubeAll(name(RemixedCasings.COPPER_TRAIN.getCasing()), ResourceLocation.fromNamespaceAndPath("remixed_casings", "block/copper/train"));
+        simpleBlockWithItem(RemixedCasings.COPPER_TRAIN.getCasing(), copperTrain);
     }
 
     public String name(Block block) {

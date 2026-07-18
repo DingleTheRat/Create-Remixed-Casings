@@ -43,8 +43,7 @@ public class CasingBlockMixin extends Block {
 
         BlockState newState = mapEntry.get(itemStack.getItem()).defaultBlockState();
         level.setBlockAndUpdate(position, newState);
-        if (level instanceof ServerLevel serverLevel)
-            serverLevel.sendParticles(new BlockParticleOption(ParticleTypes.BLOCK, newState), position.getX() + 0.5, position.getY() + 0.5, position.getZ() + 0.5, 30, 0.3, 0.3, 0.3, 0.0);
+        level.levelEvent(null, 2001, position, Block.getId(state)); // Makes particle, but better than anything I can do with generateParticles()
 
         if (itemStack.getItem() == AllItems.STURDY_SHEET.get()) AllAdvancements.TRAIN_CASING.awardTo(player);
 

@@ -37,6 +37,16 @@ public class RemixedCasings {
     public static final CasingSet BRASS_SPRUCE = CasingSets.register("brass_spruce", new CasingSet.Options().ctSprite(() -> BRASS_SPRUCE_SHIFT).casing());
     public static final CasingSet BRASS_ACACIA_BARK = CasingSets.register("brass_acacia_bark", new CasingSet.Options().ctSprite(() -> BRASS_ACACIA_BARK_SHIFT).casing());
 
+    // Copper Shifts
+    public static final CTSpriteShiftEntry COPPER_DARK_OAK_SHIFT = CTSpriteShifter.getCT(AllCTTypes.OMNIDIRECTIONAL, ResourceLocation.fromNamespaceAndPath("remixed_casings", "block/copper/dark_oak"), ResourceLocation.fromNamespaceAndPath("remixed_casings", "block/copper/dark_oak_connected"));
+    public static final CTSpriteShiftEntry COPPER_TRAIN_SHIFT = CTSpriteShifter.getCT(AllCTTypes.OMNIDIRECTIONAL, ResourceLocation.fromNamespaceAndPath("remixed_casings", "block/copper/train"), ResourceLocation.fromNamespaceAndPath("remixed_casings", "block/copper/train_connected"));
+    public static final CTSpriteShiftEntry COPPER_SPRUCE_SHIFT = CTSpriteShifter.getCT(AllCTTypes.OMNIDIRECTIONAL, ResourceLocation.fromNamespaceAndPath("remixed_casings", "block/copper/spruce"), ResourceLocation.fromNamespaceAndPath("remixed_casings", "block/copper/spruce_connected"));
+
+    // Copper Casing Sets
+    public static final CasingSet COPPER_DARK_OAK = CasingSets.register("copper_dark_oak", new CasingSet.Options().ctSprite(() -> COPPER_DARK_OAK_SHIFT).casing());
+    public static final CasingSet COPPER_TRAIN = CasingSets.register("copper_train", new CasingSet.Options().ctSprite(() -> COPPER_TRAIN_SHIFT).casing());
+    public static final CasingSet COPPER_SPRUCE = CasingSets.register("copper_spruce", new CasingSet.Options().ctSprite(() -> COPPER_SPRUCE_SHIFT).casing());
+
     public static void register() {
         if (ModList.get().isLoaded(TFMG.MOD_ID)) {
             ALUMINUM_SHIFT = CTSpriteShifter.getCT(

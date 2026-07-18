@@ -55,7 +55,8 @@ public class CreateRemixedCasings {
             AllItems.STURDY_SHEET.get(), RemixedCasings.ANDESITE_TRAIN.getCasing(),
 
             // Materials
-            AllItems.BRASS_INGOT.get(), RemixedCasings.BRASS_SPRUCE.getCasing()
+            AllItems.BRASS_INGOT.get(), RemixedCasings.BRASS_SPRUCE.getCasing(),
+            Items.COPPER_INGOT, RemixedCasings.COPPER_SPRUCE.getCasing()
         );
         CASING_CONVERSION_MAP.put(AllBlocks.ANDESITE_CASING.get(), andesite);
 
@@ -67,7 +68,8 @@ public class CreateRemixedCasings {
             AllItems.STURDY_SHEET.get(), RemixedCasings.ANDESITE_TRAIN.getCasing(),
 
             // Materials
-            AllItems.BRASS_INGOT.get(), AllBlocks.BRASS_CASING.get()
+            AllItems.BRASS_INGOT.get(), AllBlocks.BRASS_CASING.get(),
+            Items.COPPER_INGOT, RemixedCasings.COPPER_DARK_OAK.getCasing()
         );
         CASING_CONVERSION_MAP.put(RemixedCasings.ANDESITE_DARK_OAK.getCasing(), andesiteDarkOak);
 
@@ -79,7 +81,8 @@ public class CreateRemixedCasings {
             AllItems.STURDY_SHEET.get(), RemixedCasings.ANDESITE_TRAIN.getCasing(),
 
             // Materials
-            AllItems.BRASS_INGOT.get(), RemixedCasings.BRASS_ACACIA_BARK.getCasing()
+            AllItems.BRASS_INGOT.get(), RemixedCasings.BRASS_ACACIA_BARK.getCasing(),
+            Items.COPPER_INGOT, AllBlocks.COPPER_CASING.get()
         );
         CASING_CONVERSION_MAP.put(RemixedCasings.ANDESITE_ACACIA_BARK.getCasing(), andesiteAcaciaBark);
 
@@ -91,7 +94,8 @@ public class CreateRemixedCasings {
             RemixedBlocks.ACACIA_BARK_PLANKS.get().asItem(), RemixedCasings.ANDESITE_ACACIA_BARK.getCasing(),
 
             // Materials
-            AllItems.BRASS_INGOT.get(), AllBlocks.RAILWAY_CASING.get()
+            AllItems.BRASS_INGOT.get(), AllBlocks.RAILWAY_CASING.get(),
+            Items.COPPER_INGOT, RemixedCasings.COPPER_TRAIN.getCasing()
         );
         CASING_CONVERSION_MAP.put(RemixedCasings.ANDESITE_TRAIN.getCasing(), andesiteTrain);
 
@@ -102,7 +106,8 @@ public class CreateRemixedCasings {
             RemixedBlocks.ACACIA_BARK_PLANKS.get().asItem(), RemixedCasings.BRASS_ACACIA_BARK.getCasing(),
 
             // Materials
-            AllItems.ANDESITE_ALLOY.get(), RemixedCasings.ANDESITE_DARK_OAK.getCasing()
+            AllItems.ANDESITE_ALLOY.get(), RemixedCasings.ANDESITE_DARK_OAK.getCasing(),
+            Items.COPPER_INGOT, RemixedCasings.COPPER_DARK_OAK.getCasing()
         );
         CASING_CONVERSION_MAP.put(AllBlocks.BRASS_CASING.get(), brass);
 
@@ -114,7 +119,8 @@ public class CreateRemixedCasings {
             AllItems.STURDY_SHEET.get(), AllBlocks.RAILWAY_CASING.get(),
 
             // Materials
-            AllItems.ANDESITE_ALLOY.get(), AllBlocks.ANDESITE_CASING.get()
+            AllItems.ANDESITE_ALLOY.get(), AllBlocks.ANDESITE_CASING.get(),
+            Items.COPPER_INGOT, RemixedCasings.COPPER_SPRUCE.getCasing()
         );
         CASING_CONVERSION_MAP.put(RemixedCasings.BRASS_SPRUCE.getCasing(), brassSpruce);
 
@@ -126,7 +132,8 @@ public class CreateRemixedCasings {
             AllItems.STURDY_SHEET.get(), AllBlocks.RAILWAY_CASING.get(),
 
             // Materials
-            AllItems.ANDESITE_ALLOY.get(), RemixedCasings.ANDESITE_ACACIA_BARK.getCasing()
+            AllItems.ANDESITE_ALLOY.get(), RemixedCasings.ANDESITE_ACACIA_BARK.getCasing(),
+            Items.COPPER_INGOT, AllBlocks.COPPER_CASING.get()
         );
         CASING_CONVERSION_MAP.put(RemixedCasings.BRASS_ACACIA_BARK.getCasing(), brassAcaciaBark);
 
@@ -136,10 +143,64 @@ public class CreateRemixedCasings {
             Items.DARK_OAK_PLANKS, AllBlocks.BRASS_CASING.get(),
             Items.SPRUCE_PLANKS, RemixedCasings.BRASS_SPRUCE.getCasing(),
             RemixedBlocks.ACACIA_BARK_PLANKS.get().asItem(), RemixedCasings.BRASS_ACACIA_BARK.getCasing(),
+
             // Materials
-            AllItems.ANDESITE_ALLOY.get(), RemixedCasings.ANDESITE_TRAIN.getCasing()
+            AllItems.ANDESITE_ALLOY.get(), RemixedCasings.ANDESITE_TRAIN.getCasing(),
+            Items.COPPER_INGOT, RemixedCasings.COPPER_TRAIN.getCasing()
         );
         CASING_CONVERSION_MAP.put(AllBlocks.RAILWAY_CASING.get(), trainCasing);
+
+        // Copper
+        Map<Item, Block> copper = Map.of(
+            // Planks
+            Items.SPRUCE_PLANKS, RemixedCasings.COPPER_SPRUCE.getCasing(),
+            Items.DARK_OAK_PLANKS, RemixedCasings.COPPER_DARK_OAK.getCasing(),
+            AllItems.STURDY_SHEET.get(), RemixedCasings.COPPER_TRAIN.getCasing(),
+
+            // Materials
+            AllItems.ANDESITE_ALLOY.get(), RemixedCasings.ANDESITE_ACACIA_BARK.getCasing(),
+            AllItems.BRASS_INGOT.get(), RemixedCasings.BRASS_ACACIA_BARK.getCasing()
+        );
+        CASING_CONVERSION_MAP.put(AllBlocks.COPPER_CASING.get(), copper);
+
+        // Copper Spruce
+        Map<Item, Block> copperSpruce = Map.of(
+            // Planks
+            Items.DARK_OAK_PLANKS, RemixedCasings.COPPER_DARK_OAK.getCasing(),
+            RemixedBlocks.ACACIA_BARK_PLANKS.get().asItem(), AllBlocks.COPPER_CASING.get(),
+            AllItems.STURDY_SHEET.get(), RemixedCasings.COPPER_TRAIN.getCasing(),
+
+            // Materials
+            AllItems.ANDESITE_ALLOY.get(), AllBlocks.ANDESITE_CASING.get(),
+            AllItems.BRASS_INGOT.get(), RemixedCasings.BRASS_SPRUCE.getCasing()
+        );
+        CASING_CONVERSION_MAP.put(RemixedCasings.COPPER_SPRUCE.getCasing(), copperSpruce);
+
+        // Copper Dark Oak
+        Map<Item, Block> copperDarkOak = Map.of(
+            // Planks
+            Items.SPRUCE_PLANKS, RemixedCasings.COPPER_SPRUCE.getCasing(),
+            RemixedBlocks.ACACIA_BARK_PLANKS.get().asItem(), AllBlocks.COPPER_CASING.get(),
+            AllItems.STURDY_SHEET.get(), RemixedCasings.COPPER_TRAIN.getCasing(),
+
+            // Materials
+            AllItems.ANDESITE_ALLOY.get(), RemixedCasings.ANDESITE_DARK_OAK.getCasing(),
+            AllItems.BRASS_INGOT.get(), AllBlocks.BRASS_CASING.get()
+        );
+        CASING_CONVERSION_MAP.put(RemixedCasings.COPPER_DARK_OAK.getCasing(), copperDarkOak);
+
+        // Copper Train
+        Map<Item, Block> copperTrain = Map.of(
+            // Planks
+            Items.SPRUCE_PLANKS, RemixedCasings.COPPER_SPRUCE.getCasing(),
+            Items.DARK_OAK_PLANKS, RemixedCasings.COPPER_DARK_OAK.getCasing(),
+            RemixedBlocks.ACACIA_BARK_PLANKS.get().asItem(), AllBlocks.COPPER_CASING.get(),
+
+            // Materials
+            AllItems.ANDESITE_ALLOY.get(), RemixedCasings.ANDESITE_TRAIN.getCasing(),
+            AllItems.BRASS_INGOT.get(), AllBlocks.RAILWAY_CASING.get()
+        );
+        CASING_CONVERSION_MAP.put(RemixedCasings.COPPER_TRAIN.getCasing(), copperTrain);
     }
 
     public void onGatherData(GatherDataEvent event) {
