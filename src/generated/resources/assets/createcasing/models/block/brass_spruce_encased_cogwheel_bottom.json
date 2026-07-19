@@ -1,0 +1,10 @@
+{
+  "parent": "tfmg:block/encased_cogwheel/block_bottom",
+  "textures": {
+    "1": "remixed_casings:block/brass/spruce",
+    "4": "remixed_casings:block/brass/spruce_shaft",
+    "casing": "remixed_casings:block/brass/spruce",
+    "particle": "remixed_casings:block/brass/spruce",
+    "side": "remixed_casings:block/brass/spruce_cogwheel"
+  }
+}

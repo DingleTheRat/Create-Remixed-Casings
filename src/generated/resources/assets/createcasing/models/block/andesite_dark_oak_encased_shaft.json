@@ -1,0 +1,8 @@
+{
+  "parent": "create:block/encased_shaft/block",
+  "textures": {
+    "casing": "remixed_casings:block/andesite/dark_oak",
+    "opening": "remixed_casings:block/andesite/dark_oak_shaft",
+    "particle": "remixed_casings:block/andesite/dark_oak"
+  }
+}

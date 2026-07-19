@@ -1,0 +1,10 @@
+{
+  "parent": "tfmg:block/encased_cogwheel/block_bottom",
+  "textures": {
+    "1": "remixed_casings:block/copper/train",
+    "4": "remixed_casings:block/copper/train_shaft",
+    "casing": "remixed_casings:block/copper/train",
+    "particle": "remixed_casings:block/copper/train",
+    "side": "remixed_casings:block/copper/train_cogwheel"
+  }
+}

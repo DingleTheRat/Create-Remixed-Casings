@@ -1,0 +1,10 @@
+{
+  "parent": "tfmg:block/encased_large_cogwheel/block",
+  "textures": {
+    "1": "remixed_casings:block/andesite/train",
+    "4": "remixed_casings:block/andesite/train_shaft",
+    "casing": "remixed_casings:block/andesite/train",
+    "particle": "remixed_casings:block/andesite/train",
+    "side": "remixed_casings:block/andesite/train_cogwheel"
+  }
+}

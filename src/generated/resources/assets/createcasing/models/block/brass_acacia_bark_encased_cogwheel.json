@@ -1,0 +1,10 @@
+{
+  "parent": "tfmg:block/encased_cogwheel/block",
+  "textures": {
+    "1": "remixed_casings:block/brass/acacia_bark",
+    "4": "remixed_casings:block/brass/acacia_bark_shaft",
+    "casing": "remixed_casings:block/brass/acacia_bark",
+    "particle": "remixed_casings:block/brass/acacia_bark",
+    "side": "remixed_casings:block/brass/acacia_bark_cogwheel"
+  }
+}

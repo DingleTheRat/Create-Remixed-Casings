@@ -52,84 +52,129 @@ public class CasingBlockStateProvider extends BlockStateProvider {
             ResourceLocation aluminumEncasedCogwheelSide = ResourceLocation.fromNamespaceAndPath("remixed_casings", "block/aluminum_encased_cogwheel_side");
 
             createEncasedShaft(RemixedCasings.ALUMINUM.getShaft(), aluminumTexture, aluminumGearbox);
-            createEncasedCogwheel("encased_cogwheel", RemixedCasings.ALUMINUM.getCogwheel(), aluminumTexture, aluminumEncasedCogwheelSide, aluminumGearbox);
-            createEncasedCogwheel("encased_large_cogwheel", RemixedCasings.ALUMINUM.getLargeCogwheel(), aluminumTexture, aluminumEncasedCogwheelSide, aluminumGearbox);
+            createEncasedCogwheel("encased_cogwheel", RemixedCasings.ALUMINUM.getCogwheel(), aluminumTexture, aluminumGearbox, aluminumEncasedCogwheelSide);
+            createEncasedCogwheel("encased_large_cogwheel", RemixedCasings.ALUMINUM.getLargeCogwheel(), aluminumTexture, aluminumGearbox, aluminumEncasedCogwheelSide);
 
             createEncasedShaft(RemixedCasings.STEEL.getShaft(), steelTexture, steelGearboxTexture);
-            createEncasedCogwheel("encased_cogwheel", RemixedCasings.STEEL.getCogwheel(), steelTexture, steelEncasedCogwheelSide, steelGearboxTexture);
-            createEncasedCogwheel("encased_large_cogwheel", RemixedCasings.STEEL.getLargeCogwheel(), steelTexture, steelEncasedCogwheelSide, steelGearboxTexture);
+            createEncasedCogwheel("encased_cogwheel", RemixedCasings.STEEL.getCogwheel(), steelTexture, steelGearboxTexture, steelEncasedCogwheelSide);
+            createEncasedCogwheel("encased_large_cogwheel", RemixedCasings.STEEL.getLargeCogwheel(), steelTexture,steelGearboxTexture, steelEncasedCogwheelSide);
         }
 
         // Andesite
-        ModelFile andesiteDarkOak = models().cubeAll(name(RemixedCasings.ANDESITE_DARK_OAK.getCasing()), ResourceLocation.fromNamespaceAndPath("remixed_casings", "block/andesite/dark_oak"));
-        simpleBlockWithItem(RemixedCasings.ANDESITE_DARK_OAK.getCasing(), andesiteDarkOak);
-        ModelFile andesiteTrain = models().cubeAll(name(RemixedCasings.ANDESITE_TRAIN.getCasing()), ResourceLocation.fromNamespaceAndPath("remixed_casings", "block/andesite/train"));
-        simpleBlockWithItem(RemixedCasings.ANDESITE_TRAIN.getCasing(), andesiteTrain);
-        ModelFile andesiteAcaciaBark = models().cubeAll(name(RemixedCasings.ANDESITE_ACACIA_BARK.getCasing()), ResourceLocation.fromNamespaceAndPath("remixed_casings", "block/andesite/acacia_bark"));
-        simpleBlockWithItem(RemixedCasings.ANDESITE_ACACIA_BARK.getCasing(), andesiteAcaciaBark);
+        ResourceLocation andesiteDarkOak = ResourceLocation.fromNamespaceAndPath("remixed_casings", "block/andesite/dark_oak");
+        ResourceLocation andesiteDarkOakShaft = ResourceLocation.fromNamespaceAndPath("remixed_casings", "block/andesite/dark_oak_shaft");
+        ResourceLocation andesiteDarkOakCogwheel = ResourceLocation.fromNamespaceAndPath("remixed_casings", "block/andesite/dark_oak_cogwheel");
+        simpleBlockWithItem(RemixedCasings.ANDESITE_DARK_OAK.getCasing(), models().cubeAll(name(RemixedCasings.ANDESITE_DARK_OAK.getCasing()), andesiteDarkOak));
+        createEncasedShaft(RemixedCasings.ANDESITE_DARK_OAK.getShaft(), andesiteDarkOak, andesiteDarkOakShaft);
+        createEncasedCogwheel("encased_cogwheel", RemixedCasings.ANDESITE_DARK_OAK.getCogwheel(), andesiteDarkOak, andesiteDarkOakShaft, andesiteDarkOakCogwheel);
+        createEncasedCogwheel("encased_large_cogwheel", RemixedCasings.ANDESITE_DARK_OAK.getLargeCogwheel(), andesiteDarkOak, andesiteDarkOakShaft, andesiteDarkOakCogwheel);
+
+        ResourceLocation andesiteTrain = ResourceLocation.fromNamespaceAndPath("remixed_casings", "block/andesite/train");
+        ResourceLocation andesiteTrainShaft = ResourceLocation.fromNamespaceAndPath("remixed_casings", "block/andesite/train_shaft");
+        ResourceLocation andesiteTrainCogwheel = ResourceLocation.fromNamespaceAndPath("remixed_casings", "block/andesite/train_cogwheel");
+        simpleBlockWithItem(RemixedCasings.ANDESITE_TRAIN.getCasing(), models().cubeAll(name(RemixedCasings.ANDESITE_TRAIN.getCasing()), andesiteTrain));
+        createEncasedShaft(RemixedCasings.ANDESITE_TRAIN.getShaft(), andesiteTrain, andesiteTrainShaft);
+        createEncasedCogwheel("encased_cogwheel", RemixedCasings.ANDESITE_TRAIN.getCogwheel(), andesiteTrain, andesiteTrainShaft, andesiteTrainCogwheel);
+        createEncasedCogwheel("encased_large_cogwheel", RemixedCasings.ANDESITE_TRAIN.getLargeCogwheel(), andesiteTrain, andesiteTrainShaft, andesiteTrainCogwheel);
+
+        ResourceLocation andesiteAcaciaBark = ResourceLocation.fromNamespaceAndPath("remixed_casings", "block/andesite/acacia_bark");
+        ResourceLocation andesiteAcaciaBarkShaft = ResourceLocation.fromNamespaceAndPath("remixed_casings", "block/andesite/acacia_bark_shaft");
+        ResourceLocation andesiteAcaciaBarkCogwheel = ResourceLocation.fromNamespaceAndPath("remixed_casings", "block/andesite/acacia_bark_cogwheel");
+        simpleBlockWithItem(RemixedCasings.ANDESITE_ACACIA_BARK.getCasing(), models().cubeAll(name(RemixedCasings.ANDESITE_ACACIA_BARK.getCasing()), andesiteAcaciaBark));
+        createEncasedShaft(RemixedCasings.ANDESITE_ACACIA_BARK.getShaft(), andesiteAcaciaBark, andesiteAcaciaBarkShaft);
+        createEncasedCogwheel("encased_cogwheel", RemixedCasings.ANDESITE_ACACIA_BARK.getCogwheel(), andesiteAcaciaBark, andesiteAcaciaBarkShaft, andesiteAcaciaBarkCogwheel);
+        createEncasedCogwheel("encased_large_cogwheel", RemixedCasings.ANDESITE_ACACIA_BARK.getLargeCogwheel(), andesiteAcaciaBark, andesiteAcaciaBarkShaft, andesiteAcaciaBarkCogwheel);
 
         // Brass
-        ModelFile brassSpruce = models().cubeAll(name(RemixedCasings.BRASS_SPRUCE.getCasing()), ResourceLocation.fromNamespaceAndPath("remixed_casings", "block/brass/spruce"));
-        simpleBlockWithItem(RemixedCasings.BRASS_SPRUCE.getCasing(), brassSpruce);
-        ModelFile brassAcaciaBark = models().cubeAll(name(RemixedCasings.BRASS_ACACIA_BARK.getCasing()), ResourceLocation.fromNamespaceAndPath("remixed_casings", "block/brass/acacia_bark"));
-        simpleBlockWithItem(RemixedCasings.BRASS_ACACIA_BARK.getCasing(), brassAcaciaBark);
+        ResourceLocation brassSpruce = ResourceLocation.fromNamespaceAndPath("remixed_casings", "block/brass/spruce");
+        ResourceLocation brassSpruceShaft = ResourceLocation.fromNamespaceAndPath("remixed_casings", "block/brass/spruce_shaft");
+        ResourceLocation brassSpruceCogwheel = ResourceLocation.fromNamespaceAndPath("remixed_casings", "block/brass/spruce_cogwheel");
+        simpleBlockWithItem(RemixedCasings.BRASS_SPRUCE.getCasing(), models().cubeAll(name(RemixedCasings.BRASS_SPRUCE.getCasing()), brassSpruce));
+        createEncasedShaft(RemixedCasings.BRASS_SPRUCE.getShaft(), brassSpruce, brassSpruceShaft);
+        createEncasedCogwheel("encased_cogwheel", RemixedCasings.BRASS_SPRUCE.getCogwheel(), brassSpruce, brassSpruceShaft, brassSpruceCogwheel);
+        createEncasedCogwheel("encased_large_cogwheel", RemixedCasings.BRASS_SPRUCE.getLargeCogwheel(), brassSpruce, brassSpruceShaft, brassSpruceCogwheel);
+
+        ResourceLocation brassAcaciaBark = ResourceLocation.fromNamespaceAndPath("remixed_casings", "block/brass/acacia_bark");
+        ResourceLocation brassAcaciaBarkShaft = ResourceLocation.fromNamespaceAndPath("remixed_casings", "block/brass/acacia_bark_shaft");
+        ResourceLocation brassAcaciaBarkCogwheel = ResourceLocation.fromNamespaceAndPath("remixed_casings", "block/brass/acacia_bark_cogwheel");
+        simpleBlockWithItem(RemixedCasings.BRASS_ACACIA_BARK.getCasing(), models().cubeAll(name(RemixedCasings.BRASS_ACACIA_BARK.getCasing()), brassAcaciaBark));
+        createEncasedShaft(RemixedCasings.BRASS_ACACIA_BARK.getShaft(), brassAcaciaBark, brassAcaciaBarkShaft);
+        createEncasedCogwheel("encased_cogwheel", RemixedCasings.BRASS_ACACIA_BARK.getCogwheel(), brassAcaciaBark, brassAcaciaBarkShaft, brassAcaciaBarkCogwheel);
+        createEncasedCogwheel("encased_large_cogwheel", RemixedCasings.BRASS_ACACIA_BARK.getLargeCogwheel(), brassAcaciaBark, brassAcaciaBarkShaft, brassAcaciaBarkCogwheel);
 
         // Copper
-        ModelFile copperDarkOak = models().cubeAll(name(RemixedCasings.COPPER_DARK_OAK.getCasing()), ResourceLocation.fromNamespaceAndPath("remixed_casings", "block/copper/dark_oak"));
-        simpleBlockWithItem(RemixedCasings.COPPER_DARK_OAK.getCasing(), copperDarkOak);
-        ModelFile copperSpruce = models().cubeAll(name(RemixedCasings.COPPER_SPRUCE.getCasing()), ResourceLocation.fromNamespaceAndPath("remixed_casings", "block/copper/spruce"));
-        simpleBlockWithItem(RemixedCasings.COPPER_SPRUCE.getCasing(), copperSpruce);
-        ModelFile copperTrain = models().cubeAll(name(RemixedCasings.COPPER_TRAIN.getCasing()), ResourceLocation.fromNamespaceAndPath("remixed_casings", "block/copper/train"));
-        simpleBlockWithItem(RemixedCasings.COPPER_TRAIN.getCasing(), copperTrain);
+        ResourceLocation copperDarkOak = ResourceLocation.fromNamespaceAndPath("remixed_casings", "block/copper/dark_oak");
+        ResourceLocation copperDarkOakShaft = ResourceLocation.fromNamespaceAndPath("remixed_casings", "block/copper/dark_oak_shaft");
+        ResourceLocation copperDarkOakCogwheel = ResourceLocation.fromNamespaceAndPath("remixed_casings", "block/copper/dark_oak_cogwheel");
+        simpleBlockWithItem(RemixedCasings.COPPER_DARK_OAK.getCasing(), models().cubeAll(name(RemixedCasings.COPPER_DARK_OAK.getCasing()), copperDarkOak));
+        createEncasedShaft(RemixedCasings.COPPER_DARK_OAK.getShaft(), copperDarkOak, copperDarkOakShaft);
+        createEncasedCogwheel("encased_cogwheel", RemixedCasings.COPPER_DARK_OAK.getCogwheel(), copperDarkOak, copperDarkOakShaft, copperDarkOakCogwheel);
+        createEncasedCogwheel("encased_large_cogwheel", RemixedCasings.COPPER_DARK_OAK.getLargeCogwheel(), copperDarkOak, copperDarkOakShaft, copperDarkOakCogwheel);
+
+        ResourceLocation copperSpruce = ResourceLocation.fromNamespaceAndPath("remixed_casings", "block/copper/spruce");
+        ResourceLocation copperSpruceShaft = ResourceLocation.fromNamespaceAndPath("remixed_casings", "block/copper/spruce_shaft");
+        ResourceLocation copperSpruceCogwheel = ResourceLocation.fromNamespaceAndPath("remixed_casings", "block/copper/spruce_cogwheel");
+        simpleBlockWithItem(RemixedCasings.COPPER_SPRUCE.getCasing(), models().cubeAll(name(RemixedCasings.COPPER_SPRUCE.getCasing()), copperSpruce));
+        createEncasedShaft(RemixedCasings.COPPER_SPRUCE.getShaft(), copperSpruce, copperSpruceShaft);
+        createEncasedCogwheel("encased_cogwheel", RemixedCasings.COPPER_SPRUCE.getCogwheel(), copperSpruce, copperSpruceShaft, copperSpruceCogwheel);
+        createEncasedCogwheel("encased_large_cogwheel", RemixedCasings.COPPER_SPRUCE.getLargeCogwheel(), copperSpruce, copperSpruceShaft, copperSpruceCogwheel);
+
+        ResourceLocation copperTrain = ResourceLocation.fromNamespaceAndPath("remixed_casings", "block/copper/train");
+        ResourceLocation copperTrainShaft = ResourceLocation.fromNamespaceAndPath("remixed_casings", "block/copper/train_shaft");
+        ResourceLocation copperTrainCogwheel = ResourceLocation.fromNamespaceAndPath("remixed_casings", "block/copper/train_cogwheel");
+        simpleBlockWithItem(RemixedCasings.COPPER_TRAIN.getCasing(), models().cubeAll(name(RemixedCasings.COPPER_TRAIN.getCasing()), copperTrain));
+        createEncasedShaft(RemixedCasings.COPPER_TRAIN.getShaft(), copperTrain, copperTrainShaft);
+        createEncasedCogwheel("encased_cogwheel", RemixedCasings.COPPER_TRAIN.getCogwheel(), copperTrain, copperTrainShaft, copperTrainCogwheel);
+        createEncasedCogwheel("encased_large_cogwheel", RemixedCasings.COPPER_TRAIN.getLargeCogwheel(), copperTrain, copperTrainShaft, copperTrainCogwheel);
     }
 
     public String name(Block block) {
         return BuiltInRegistries.BLOCK.getKey(block).getPath();
     }
 
-    public void createEncasedShaft(Block block, ResourceLocation casing, ResourceLocation opening) {
+    public void createEncasedShaft(Block block, ResourceLocation casing, ResourceLocation shaft) {
         String name = BuiltInRegistries.BLOCK.getKey(block).getPath();
         BlockModelBuilder model = models().getBuilder("block/" + name)
             .parent(new ModelFile.UncheckedModelFile(ResourceLocation.fromNamespaceAndPath("create", "block/encased_shaft/block")))
             .texture("casing", casing.toString())
-            .texture("opening", opening.toString())
+            .texture("opening", shaft.toString())
             .texture("particle", casing.toString());
         axisBlock(block, model);
     }
 
-    public void createEncasedCogwheel(String type, Block block, ResourceLocation casing, ResourceLocation side, ResourceLocation opening) {
+    public void createEncasedCogwheel(String type, Block block, ResourceLocation casing, ResourceLocation shaft, ResourceLocation cogwheel) {
         String name = BuiltInRegistries.BLOCK.getKey(block).getPath();
        BlockModelBuilder model = models().getBuilder("block/" + name)
             .parent(new ModelFile.UncheckedModelFile(ResourceLocation.fromNamespaceAndPath("tfmg", "block/" + type + "/block")))
             .texture("1", casing.toString())
-            .texture("4", opening.toString())
+            .texture("4", shaft.toString())
             .texture("casing", casing.toString())
             .texture("particle", casing.toString())
-            .texture("side", side.toString());
+            .texture("side", cogwheel.toString());
 
         BlockModelBuilder modelTop = models().getBuilder("block/" + name + "_top")
             .parent(new ModelFile.UncheckedModelFile(ResourceLocation.fromNamespaceAndPath("tfmg", "block/" + type + "/block_top")))
             .texture("1", casing.toString())
-            .texture("4", opening.toString())
+            .texture("4", shaft.toString())
             .texture("casing", casing.toString())
             .texture("particle", casing.toString())
-            .texture("side", side.toString());
+            .texture("side", cogwheel.toString());
 
         BlockModelBuilder modelBottom = models().getBuilder("block/" + name + "_bottom")
             .parent(new ModelFile.UncheckedModelFile(ResourceLocation.fromNamespaceAndPath("tfmg", "block/" + type + "/block_bottom")))
             .texture("1", casing.toString())
-            .texture("4", opening.toString())
+            .texture("4", shaft.toString())
             .texture("casing", casing.toString())
             .texture("particle", casing.toString())
-            .texture("side", side.toString());
+            .texture("side", cogwheel.toString());
 
         BlockModelBuilder modelTopBottom = models().getBuilder("block/" + name + "_top_bottom")
             .parent(new ModelFile.UncheckedModelFile(ResourceLocation.fromNamespaceAndPath("tfmg", "block/" + type + "/block_top_bottom")))
             .texture("1", casing.toString())
-            .texture("4", opening.toString())
+            .texture("4", shaft.toString())
             .texture("casing", casing.toString())
             .texture("particle", casing.toString())
-            .texture("side", side.toString());
+            .texture("side", cogwheel.toString());
         cogBlock(block, model, modelTop, modelBottom, modelTopBottom);
     }
 

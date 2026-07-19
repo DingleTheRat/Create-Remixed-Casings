@@ -6,6 +6,10 @@
   "block.createcasing.brass_spruce_casing": "Brass Spruce Casing",
   "block.createcasing.brass_acacia_bark_casing": "Brass Acacia Bark Casing",
 
+  "block.createcasing.copper_spruce_casing": "Copper Spruce Casing",
+  "block.createcasing.copper_dark_oak_casing": "Copper Dark Oak Casing",
+  "block.createcasing.copper_train_casing": "Copper Train Casing",
+
   "block.remixed_casings.acacia_bark_planks": "Acacia Bark Planks",
   "item.remixed_casings.acacia_bark": "Acacia Bark"
 }
